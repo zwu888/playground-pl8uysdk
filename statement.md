@@ -1,19 +1,26 @@
-# Welcome!
-
-This C++ template lets you get started quickly with a simple one-page playground.
+# description: 
+ Jumping into a block and bypassing a declaration with an initialization is ill-formed.  In this example there are cases which would bypass the declaration and initialization of block scope x declaration.
 
 ```C++ runnable
 #include <iostream>
 
-using namespace std;
-
 int main() 
-{
-    cout << "Hello, World!";
-    return 0;
-}
-```
+{ 
+  int x = 3;
 
-# Advanced usage
+  switch(x)
+  {
+    case 0:
+      int x = 1;
+      std::cout << x << std::endl;
+    break;
+    case 3:
+      std::cout << x << std::endl;
+    break;
+    default:
+      x = 2;
+      std::cout << x << std::endl;
+  }
 
-If you want a more complex example (external libraries, viewers...), use the [Advanced C++ template](https://tech.io/select-repo/598)
+  return 0;
+} 
